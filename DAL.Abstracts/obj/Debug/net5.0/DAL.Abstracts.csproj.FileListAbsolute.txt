@@ -1,0 +1,15 @@
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\bin\Debug\net5.0\DAL.Abstracts.deps.json
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\bin\Debug\net5.0\DAL.Abstracts.dll
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\bin\Debug\net5.0\DAL.Abstracts.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\bin\Debug\net5.0\DAL.Entities.dll
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\bin\Debug\net5.0\DAL.Entities.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.csproj.AssemblyReference.cache
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.AssemblyInfoInputs.cache
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.AssemblyInfo.cs
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.csproj.CoreCompileInputs.cache
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.csproj.CopyComplete
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.dll
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\DAL.Abstracts.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\obj\Debug\net5.0\ref\DAL.Abstracts.dll
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Abstracts\bin\Debug\net5.0\ref\DAL.Abstracts.dll

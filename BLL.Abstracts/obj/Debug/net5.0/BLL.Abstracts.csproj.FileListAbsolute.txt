@@ -1,0 +1,15 @@
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\bin\Debug\net5.0\BLL.Abstracts.deps.json
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\bin\Debug\net5.0\BLL.Abstracts.dll
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\bin\Debug\net5.0\BLL.Abstracts.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\bin\Debug\net5.0\Models.dll
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\bin\Debug\net5.0\Models.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.csproj.AssemblyReference.cache
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.AssemblyInfoInputs.cache
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.AssemblyInfo.cs
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.csproj.CoreCompileInputs.cache
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.csproj.CopyComplete
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.dll
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\BLL.Abstracts.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\obj\Debug\net5.0\ref\BLL.Abstracts.dll
+C:\Users\anton\RiderProjects\DotNetLabs\BLL.Abstracts\bin\Debug\net5.0\ref\BLL.Abstracts.dll

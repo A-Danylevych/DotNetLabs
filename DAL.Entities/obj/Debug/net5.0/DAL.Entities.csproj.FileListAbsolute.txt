@@ -1,0 +1,12 @@
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\bin\Debug\net5.0\DAL.Entities.deps.json
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\bin\Debug\net5.0\DAL.Entities.dll
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\bin\Debug\net5.0\DAL.Entities.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\DAL.Entities.csproj.AssemblyReference.cache
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\DAL.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\DAL.Entities.AssemblyInfoInputs.cache
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\DAL.Entities.AssemblyInfo.cs
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\DAL.Entities.csproj.CoreCompileInputs.cache
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\DAL.Entities.dll
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\DAL.Entities.pdb
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\obj\Debug\net5.0\ref\DAL.Entities.dll
+C:\Users\anton\RiderProjects\DotNetLabs\DAL.Entities\bin\Debug\net5.0\ref\DAL.Entities.dll
