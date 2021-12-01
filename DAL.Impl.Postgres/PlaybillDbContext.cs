@@ -8,7 +8,6 @@ namespace DAL.Impl.Postgres
     {
         public PlaybillDbContext(DbContextOptions<PlaybillDbContext> context) : base(context)
         {
-            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
@@ -25,10 +24,10 @@ namespace DAL.Impl.Postgres
             modelBuilder.Entity<Show>().HasIndex(show => new {show.Name, show.Date}).IsUnique();
             modelBuilder.Entity<Ticket>().HasIndex(ticket => new {ticket.Row, ticket.Seat, ticket.ShowId}).IsUnique();
 
-            modelBuilder.Entity<Author>().HasOne(a => a.Show)
-                .WithOne(s => s.Author).HasForeignKey<Show>(s => s.AuthorId);
+            modelBuilder.Entity<Author>().HasMany(a => a.Shows)
+                .WithOne(s => s.Author).HasForeignKey(s => s.AuthorId);
             modelBuilder.Entity<Genre>().HasMany(g => g.Shows)
-                .WithMany(s => s.Genres);
+                .WithOne(s => s.Genre).HasForeignKey(s => s.GenreId);
             modelBuilder.Entity<Show>().HasMany(s => s.Tickets)
                 .WithOne(t => t.Show).HasForeignKey(t => t.ShowId);
             modelBuilder.Entity<Status>().HasMany(s => s.Tickets)

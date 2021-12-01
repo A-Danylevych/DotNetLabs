@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using BLL.Abstracts.IMapper;
 using BLL.Abstracts.IService;
 using DAL.Abstracts;
@@ -11,12 +13,15 @@ namespace BLL.Impl.Services
     public class AuthorService: IAuthorService
     {
         private readonly IBackMapper<Author, AuthorModel> _backMapper;
+        private readonly IMapper<Author, AuthorModel> _mapper;
         private readonly AbstractUnitOfWork _unit;
 
-        public AuthorService(IBackMapper<Author, AuthorModel> backMapper, AbstractUnitOfWork unit)
+        public AuthorService(IBackMapper<Author, AuthorModel> backMapper, AbstractUnitOfWork unit, IMapper<Author, 
+            AuthorModel> mapper)
         {
             _backMapper = backMapper;
             _unit = unit;
+            _mapper = mapper;
         }
 
         public async Task Create(AuthorModel authorModel)
@@ -45,6 +50,28 @@ namespace BLL.Impl.Services
             }
 
             return entity.Id;
+        }
+
+        public async Task<ICollection<AuthorModel>> GetAll()
+        {
+            var list = await _unit.Authors.GetAll();
+            return (from author in list select _mapper.Map(author)).ToList();
+        }
+
+        public async Task Delete(int id)
+        {
+            var entity = await _unit.Authors.GetById(id);
+            if (entity == null)
+            {
+                throw new NotFoundException(typeof(Author));
+            }
+            _unit.Authors.Delete(entity);
+            await _unit.Save();
+        }
+
+        public async Task<AuthorModel> GetById(int id)
+        {
+            return _mapper.Map(await _unit.Authors.GetById(id));
         }
     }
 }

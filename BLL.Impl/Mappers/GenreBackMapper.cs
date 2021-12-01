@@ -10,6 +10,7 @@ namespace BLL.Impl.Mappers
         {
             return new Genre
             {
+                Id = model.Id,
                 Name = model.Name,
             };
         }

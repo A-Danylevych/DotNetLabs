@@ -10,6 +10,7 @@ namespace BLL.Impl.Mappers
         {
             return new TicketModel
             {
+                Id = entity.Id,
                 Price = entity.Price,
                 Row = entity.Row,
                 Seat = entity.Seat,

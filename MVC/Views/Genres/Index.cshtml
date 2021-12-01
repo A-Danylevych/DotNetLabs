@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Models.Base.GenreModel>
+@{
+    ViewData["Title"] = "Genres";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <p>@Html.ActionLink("Add Genre", "Add")</p>
+</head>
+<body>
+<h3>Genres</h3>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td></td>
+        </tr>
+        @foreach (var genreModel in Model)
+            {
+            <tr>
+                <td>@genreModel.Name</td>
+                <td>
+                    <from method="Delete">
+                        <button asp-action="Delete" asp-route-id="@genreModel.Id">
+                            Delete
+                        </button>
+                    </from>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

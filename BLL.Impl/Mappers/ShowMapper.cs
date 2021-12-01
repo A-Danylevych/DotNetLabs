@@ -10,12 +10,12 @@ namespace BLL.Impl.Mappers
     {
         public ShowModel Map(Show entity)
         {
-            List<int> genresIds = entity.Genres.Select(genre => genre.Id).ToList();
             return new ShowModel
             {
+                Id = entity.Id,
                 AuthorId = entity.AuthorId,
                 Date = entity.Date,
-                GenresIds = genresIds,
+                GenreId = entity.GenreId,
                 Name = entity.Name,
             };
         }

@@ -1,15 +1,16 @@
 ﻿using DAL.Abstracts;
 using DAL.Abstracts.IRepository;
+using DAL.Impl.Postgres;
 using DAL.Impl.Postgres.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DAL.Impl.Postgres
+namespace Configuration
 {
     public static class DalDependencyInstaller
     {
-        public static void Install(this IServiceCollection services, IConfiguration configuration)
+        public static void AddPostgresDb(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<PlaybillDbContext>(opt =>
                 opt.UseNpgsql(configuration.GetConnectionString("Postgres")));

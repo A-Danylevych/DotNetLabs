@@ -1,0 +1,40 @@
+﻿@model Models.Base.ShowModel
+ 
+@{
+    ViewBag.Title = "Добавление игрока";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+ 
+<h2>Adding new show</h2>
+ 
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Show</legend>
+ 
+        <p>
+            Name <br />
+            @Html.EditorFor(model => model.Name)
+        </p>
+ 
+        <p>
+            Date <br />
+            @Html.EditorFor(model => model.Date)
+        </p>
+        <p>
+            Author <br />
+            @Html.DropDownListFor(model => model.AuthorId, ViewBag.Authors as SelectList)
+        </p>
+        <p>
+            Genre <br />
+            @Html.DropDownListFor(model => model.GenreId, ViewBag.Genres as SelectList)
+        </p>
+
+        <p>
+            <input type="submit" value="Add show" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("To shows", "Index")
+</div>

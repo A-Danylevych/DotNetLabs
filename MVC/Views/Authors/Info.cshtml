@@ -1,0 +1,28 @@
+﻿@model Models.Base.AuthorModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <p>@Html.ActionLink("Delete author", "Add")</p>
+</head>
+<body>
+<h3>Author Info</h3>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td></td>
+        </tr>
+        <tr>
+                <td>@Model.FirstName</td>
+                <td>@Model.LastName</td>
+        </tr>
+    </table>
+</body>
+</html>

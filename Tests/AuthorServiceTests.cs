@@ -25,7 +25,7 @@ namespace Tests
         {
             var context = new PlaybillDbContext(ContextOptions);
             var unit = new UnitOfWork(context);
-            _service = new AuthorService(new AuthorBackMapper(), unit);
+            _service = new AuthorService(new AuthorBackMapper(), unit, new AuthorMapper());
             const string name = "CreatedName";
             const string lastName = "CreatedLastName";
             var entity = new Author

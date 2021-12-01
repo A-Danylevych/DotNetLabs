@@ -6,18 +6,20 @@ using DAL.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using Models.Base;
 
-namespace BLL.Impl
+namespace Configuration
 {
     public static class BllDependencyInstaller
     {
-        public static void InstallServices(this IServiceCollection services)
+        public static void AddServices(this IServiceCollection services)
         {
             services.AddTransient<IAuthorService, AuthorService>();
             services.AddTransient<IBackMapper<Author, AuthorModel>, AuthorBackMapper>();
+            services.AddTransient<IMapper<Author, AuthorModel>, AuthorMapper>();
             
             services.AddTransient<IGenreService, GenreService>();
             services.AddTransient<IBackMapper<Genre, GenreModel>, GenreBackMapper>();
-            
+            services.AddTransient<IMapper<Genre, GenreModel>, GenreMapper>();
+
             services.AddTransient<IShowService, ShowService>();
             services.AddTransient<IBackMapper<Show, ShowModel>, ShowBackMapper>();
             services.AddTransient<IMapper<Show, ShowModel>, ShowMapper>();

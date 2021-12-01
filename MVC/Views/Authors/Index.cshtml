@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Models.Base.AuthorModel>
+@{
+    ViewData["Title"] = "Authors";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <p>@Html.ActionLink("Add Author", "Add")</p>
+</head>
+<body>
+<h3>Authors</h3>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Surname</td>
+            <td></td>
+        </tr>
+        @foreach (var author in Model)
+            {
+            <tr>
+                <td>@author.FirstName</td>
+                <td>@author.LastName</td>
+                <td>
+                    <from action="Delete" method="Delete">
+                        <button asp-action="Delete" asp-route-id="@author.Id">
+                            Delete
+                        </button>
+                    </from>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

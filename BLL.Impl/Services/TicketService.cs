@@ -48,6 +48,45 @@ namespace BLL.Impl.Services
             }
         }
 
+        public async Task CreateTicketsForShow(int showId, int rowCount, int seatCount, decimal basePrice)
+        {
+            var price = basePrice;
+            for (var row = 1; row <= rowCount; row++)
+            {
+                if (row == rowCount-3)
+                {
+                    price *= (decimal) 1.25;
+                }
+                for (var seat = 1; seat < +seatCount; seat++)
+                {
+                    var entity = new Ticket
+                    {
+                        Price = price,
+                        Row = row,
+                        Seat = seat,
+                        StatusId = (int) StatusEnum.Available,
+                        ShowId = showId
+                    };
+                    await _unit.Tickets.Create(entity);
+                }
+            }
+
+            await _unit.Save();
+        }
+
+        public async Task<decimal> GetPrice(TicketModel ticketModel)
+        {
+            var entity = _backMapper.MapBack(ticketModel);
+            
+            entity = await _unit.Tickets.Find(entity);
+            if (entity == null)
+            {
+                throw new NotFoundException(typeof(Ticket));
+            }
+
+            return entity.Price;
+        }
+
         private async Task<TicketModel> SellOrBookTicket(TicketModel ticketModel, StatusEnum status)
         {
             var entity = _backMapper.MapBack(ticketModel);

@@ -1,6 +1,4 @@
 ﻿using System;
-using BLL.Impl;
-using DAL.Impl.Postgres;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,9 +17,9 @@ namespace Configuration
             
             var services = new ServiceCollection();
             
-            services.Install(configuration);
+            services.AddPostgresDb(configuration);
             
-            services.InstallServices();
+            services.AddServices();
             Services = services.BuildServiceProvider();
         }
 

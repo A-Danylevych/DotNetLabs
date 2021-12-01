@@ -10,6 +10,7 @@ namespace BLL.Impl.Mappers
         {
             return new Author
             {
+                Id = model.Id,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
             };

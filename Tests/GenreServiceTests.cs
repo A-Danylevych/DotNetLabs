@@ -27,7 +27,7 @@ namespace Tests
         {
             var context = new PlaybillDbContext(ContextOptions);
             var unit = new UnitOfWork(context);
-            _service = new GenreService(new GenreBackMapper(), unit);
+            _service = new GenreService(new GenreBackMapper(), unit, new GenreMapper());
             const string name = "CreatedName";
             var entity = new Genre()
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace DAL.Entities
@@ -7,7 +8,6 @@ namespace DAL.Entities
     {
         public Show()
         {
-            Genres = new List<Genre>();
             Tickets = new List<Ticket>();
         }
 
@@ -17,8 +17,9 @@ namespace DAL.Entities
         
         public int AuthorId { get; set; }
         public virtual Author Author { get; set; }
-        public virtual ICollection<Genre> Genres { get; set; }
-        
+        public int GenreId { get; set; }
+        public virtual Genre Genre { get; set; }
+
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

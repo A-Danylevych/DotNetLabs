@@ -36,6 +36,7 @@ namespace ConsoleApp
             {
                 try
                 {
+                    GenreModel genre;
                     switch (Console.ReadLine())
                     {
                         case "1":
@@ -43,7 +44,7 @@ namespace ConsoleApp
                             _authorService.Create(author).Wait();
                             break;
                         case "2":
-                            var genre = ReadGenre();
+                            genre = ReadGenre();
                             _genreService.Create(genre).Wait();
                             break;
                         case "3":
@@ -90,15 +91,15 @@ namespace ConsoleApp
                             PrintShows(shows);
                             break;
                         case "12":
-                            var genres = ReadGenres();
+                            genre = ReadGenre();
                             if (unionNext)
                             {
-                                var next = new List<ShowModel>(_showService.FindByGenres(genres).Result);
+                                var next = new List<ShowModel>(_showService.FindByGenre(genre).Result);
                                 shows = new List<ShowModel>(shows.Union(next));
                             }
                             else
                             {
-                                shows = new List<ShowModel>(_showService.FindByGenres(genres).Result);
+                                shows = new List<ShowModel>(_showService.FindByGenre(genre).Result);
                             }
                             PrintShows(shows);
                             break;
@@ -158,14 +159,8 @@ namespace ConsoleApp
             show.Name = Console.ReadLine() ?? string.Empty;
             Console.WriteLine("Write author id");
             show.AuthorId = int.Parse(Console.ReadLine() ?? string.Empty);
-            Console.WriteLine("Write genres count");
-            var count = int.Parse(Console.ReadLine() ?? string.Empty);
-            show.GenresIds = new List<int>();
-            for (var i = 0; i < count; i++)
-            {
-                Console.WriteLine("Write genre id");
-                show.GenresIds.Add(int.Parse(Console.ReadLine() ?? string.Empty));
-            }
+            Console.WriteLine("Write genre id");
+            show.GenreId = int.Parse(Console.ReadLine() ?? string.Empty);
             Console.WriteLine("Write date");
             show.Date = DateTimeOffset.Now;
             return show;
@@ -187,15 +182,9 @@ namespace ConsoleApp
             return ticket;
         }
 
-        private static List<GenreModel> ReadGenres()
+        private static GenreModel ReadGenres()
         {
-            var genres = new List<GenreModel>();
-            Console.WriteLine("Write genres count");
-            var count = int.Parse(Console.ReadLine() ?? string.Empty);
-            for (var i = 0; i < count; i++)
-            {
-                genres.Add(ReadGenre());
-            }
+            var genres = new GenreModel();
 
             return genres;
         }

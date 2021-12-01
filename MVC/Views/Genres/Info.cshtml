@@ -1,0 +1,25 @@
+﻿@model Models.Base.GenreModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+<h3>Genres</h3>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>@Model.Name</td>
+            </tr>
+    </table>
+</body>
+</html>

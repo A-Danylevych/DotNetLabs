@@ -18,21 +18,31 @@ namespace DAL.Impl.Postgres.Repository
         public async Task<List<Show>> FindByAuthorId(int id)
         {
             var shows = await DbSet.Where(s => s.AuthorId == id)
-                .Include(s=> s.Genres).ToListAsync();
+                .Include(s=> s.Genre).ToListAsync();
             return shows;
         }
-        
-        public async Task<List<Show>> FindByGenreIds(ICollection<int> ids)
+
+        public async Task<List<Show>> FindByAuthor(string name, string surname)
+        {
+            var shows = await (from show in Context.Shows
+                from author in Context.Authors
+                where author.Id == show.AuthorId
+                where author.FirstName.Contains(name) || author.LastName.Contains(surname)
+                select show).ToListAsync();
+            return shows;
+        }
+
+        public async Task<List<Show>> FindByGenreId(int id)
         {
             return await (from genre in Context.Genres
-                where ids.Contains(genre.Id)
+                where genre.Id == id
                 from show in DbSet
-                select show).Include(s=> s.Genres).ToListAsync();
+                select show).Include(s=> s.Genre).ToListAsync();
         }
 
         public async Task<List<Show>> FindByDate(DateTimeOffset date)
         {
-            return await DbSet.Where(show => show.Date == date).Include(s=> s.Genres)
+            return await DbSet.Where(show => show.Date == date).Include(s=> s.Genre)
                 .ToListAsync();
         }
     }

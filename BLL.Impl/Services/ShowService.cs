@@ -52,15 +52,9 @@ namespace BLL.Impl.Services
             return result;
         }
 
-        public async Task<ICollection<ShowModel>> FindByGenres(IEnumerable<GenreModel> genres)
+        public async Task<ICollection<ShowModel>> FindByGenre(GenreModel genre)
         {
-            var ids = new List<int>();
-            foreach (var genre in genres)
-            {
-                ids.Add(await _genreService.GetId(genre));
-            }
-
-            var shows = await _unit.Shows.FindByGenreIds(ids);
+            var shows = await _unit.Shows.FindByGenreId(genre.Id);
             var result = shows.Select(show => _mapper.Map(show)).ToList();
             return result;
         }
@@ -70,6 +64,10 @@ namespace BLL.Impl.Services
             var shows = await _unit.Shows.FindByDate(date);
             var result = shows.Select(show => _mapper.Map(show)).ToList();
             return result;
+        }
+        public async Task<ICollection<ShowModel>> GetAll()
+        {
+            return (from show in await _unit.Shows.GetAll() select _mapper.Map(show)).ToList();
         }
     }
 }

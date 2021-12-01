@@ -9,5 +9,7 @@ namespace BLL.Abstracts.IService
         public Task<TicketModel> BookTicket(TicketModel ticketModel);
         
         public Task Create(TicketModel ticketModel);
+        public Task CreateTicketsForShow(int showId, int rowCount, int seatCount, decimal basePrice);
+        public Task<decimal> GetPrice(TicketModel ticketModel);
     }
 }

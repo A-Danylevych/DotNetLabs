@@ -31,8 +31,8 @@ namespace Tests
             var context = new PlaybillDbContext(ContextOptions);
             _unit = new UnitOfWork(context);
             _service = new ShowService(new ShowBackMapper(), new ShowMapper(), _unit,
-                new AuthorService(new AuthorBackMapper(), _unit),
-                new GenreService(new GenreBackMapper(), _unit));
+                new AuthorService(new AuthorBackMapper(), _unit, new AuthorMapper()),
+                new GenreService(new GenreBackMapper(), _unit, new GenreMapper()));
             const string name = "Name";
             var entityGenre = new Genre()
             {
@@ -151,7 +151,7 @@ namespace Tests
                 Name = name,
             };
             
-            var list =  _service.FindByGenres(new List<GenreModel>{genre}).Result;
+            var list =  _service.FindByGenre(new List<GenreModel>{genre}).Result;
             
             Assert.AreEqual(count, list.Count);
         }

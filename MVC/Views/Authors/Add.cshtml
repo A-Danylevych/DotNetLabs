@@ -1,0 +1,31 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adding author</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <input type="hidden" value="@ViewBag.AuthorId" name="AuthorId" />
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="FirstName" /> </td>
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td><input type="text" name="LastName" /></td>
+                </tr>
+                <tr><td><input type="submit" value="Add" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

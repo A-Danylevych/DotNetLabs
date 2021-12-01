@@ -8,6 +8,7 @@ namespace BLL.Impl.Mappers
     {
         public Ticket MapUpdate(TicketModel model, Ticket entity)
         {
+            entity.Id = model.Id;
             entity.StatusId = model.StatusId;
             return entity;
         }

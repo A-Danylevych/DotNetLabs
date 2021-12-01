@@ -10,6 +10,7 @@ namespace BLL.Impl.Mappers
         {
             return new Show
             {
+                Id = model.Id,
                 AuthorId = model.AuthorId,
                 Date = model.Date,
                 Name = model.Name,

@@ -1362,7 +1362,6 @@
           "BLL.Abstracts": "1.0.0",
           "DAL.Abstracts": "1.0.0",
           "DAL.Entities": "1.0.0",
-          "DAL.Impl.Postgres": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
           "Models": "1.0.0"
         },
@@ -1370,14 +1369,22 @@
           "BLL.Impl.dll": {}
         }
       },
+      "Configuration/1.0.0": {
+        "dependencies": {
+          "BLL.Impl": "1.0.0",
+          "DAL.Impl.Postgres": "1.0.0",
+          "Microsoft.Extensions.Configuration": "5.0.0",
+          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "Microsoft.Extensions.DependencyInjection": "5.0.2"
+        },
+        "runtime": {
+          "Configuration.dll": {}
+        }
+      },
       "ConsoleApp/1.0.0": {
         "dependencies": {
           "BLL.Abstracts": "1.0.0",
-          "BLL.Impl": "1.0.0",
-          "DAL.Abstracts": "1.0.0",
-          "DAL.Entities": "1.0.0",
-          "DAL.Impl.Postgres": "1.0.0",
-          "Microsoft.Extensions.Configuration.Json": "5.0.0",
+          "Configuration": "1.0.0",
           "Models": "1.0.0"
         },
         "runtime": {
@@ -2194,6 +2201,11 @@
       "sha512": ""
     },
     "BLL.Impl/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Configuration/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
