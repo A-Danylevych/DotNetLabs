@@ -1,0 +1,28 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adding genre</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            <input type="hidden" value="@ViewBag.GenreId" name="GenreId" />
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="Name" /> </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Add" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
