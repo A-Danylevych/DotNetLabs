@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DAL.Abstracts.IRepository;
 using DAL.Entities;
@@ -19,6 +20,11 @@ namespace DAL.Impl.Postgres.Repository
                     ticket.Row == entity.Row && ticket.Seat == entity.Seat
                                              && ticket.ShowId == entity.ShowId)
                 .FirstOrDefaultAsync();
+        }
+
+        public async Task<ICollection<Ticket>> Find(int showId)
+        {
+            return await DbSet.Where(ticket => ticket.ShowId == showId).ToListAsync();
         }
     }
 }

@@ -23,12 +23,13 @@
                 <td>@author.FirstName</td>
                 <td>@author.LastName</td>
                 <td>
-                    <from action="Delete" method="Delete">
+                    <form method="post">
                         <button asp-action="Delete" asp-route-id="@author.Id">
                             Delete
                         </button>
-                    </from>
+                    </form>
                 </td>
+                <td></td>
             </tr>
         }
     </table>

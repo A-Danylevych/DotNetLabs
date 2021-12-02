@@ -12,6 +12,7 @@ namespace BLL.Impl.Mappers
             {
                 Id = model.Id,
                 AuthorId = model.AuthorId,
+                GenreId = model.GenreId,
                 Date = model.Date,
                 Name = model.Name,
             };

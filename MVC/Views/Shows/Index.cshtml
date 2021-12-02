@@ -12,6 +12,8 @@
 <head>
     <title>@ViewData["Title"]</title>
     <p>@Html.ActionLink("Add Show", "Add")</p>
+    <p>@Html.ActionLink("Find by Author", "FindByAuthor")</p>
+     <p>@Html.ActionLink("Find by Genre", "FindByGenre")</p>
 </head>
 <body>
 <h3>Shows</h3>
@@ -26,14 +28,28 @@
             <tr>
                 <td>@showModel.Name</td>
                 <td>@showModel.Date.ToString("yyyy-MM-dd")</td>
-                <td>@Html.ActionLink("Author", "Info", "Authors", new{id =@showModel.AuthorId} )</td>
-                <td>@Html.ActionLink("Genres", "Info", "Genres", new {ids=@showModel.GenreId} ) <td/>
+                <td>@Html.ActionLink("Author", "Info", "Authors", 
+                        new{id =@showModel.AuthorId} )</td>
+                <td>@Html.ActionLink("Genre", "Info", "Genres", 
+                        new {id =@showModel.GenreId} ) <td/>
                 <td>
-                    <from method="Delete">
+                    @Html.ActionLink("Add Tickets", "AddTickets", new {showId =@showModel.Id})
+                </td>
+                <td>
+                    @Html.ActionLink("Buy Ticket", "TicketInfo", new {showId = @showModel.Id, 
+                        nextAction = "BuyTicket"})
+                </td>
+                <td>
+                    @Html.ActionLink("Book Ticket", "TicketInfo", new {showId = @showModel.Id, 
+                        nextAction = "BookTicket"})
+                </td>
+
+                <td>
+                    <form method="post">
                         <button asp-action="Delete" asp-route-id="@showModel.Id">
                             Delete
                         </button>
-                    </from>
+                    </form>
                 </td>
             </tr>
         }

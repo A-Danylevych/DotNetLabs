@@ -15,6 +15,7 @@ namespace Models.Base
         public int StatusId { get; set; }
         [Required]
         public int ShowId { get; set; }
+        public string? Owner { get; set; }
         public override string ToString()
         {
             return "Seat: " + Seat + "\n" + "Row: " + Row + "\n" + "Price: " + Price + "\n" + "StatusId: " + StatusId +

@@ -1,0 +1,41 @@
+﻿@model bool
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adding tickets</title>
+    @if (Model)
+    {
+        <h2>Tickets already created, they will be lost</h2>
+    }
+</head>
+<body>
+<div>
+    <form method="post">
+        <table>
+            <tr>
+                <td>Rows count:</td>
+                <td><input type="number" name="rowsCount"/> </td>
+            </tr>
+            <tr>
+                <td>Seat count:</td>
+                <td><input type="number" name="seatCount"/></td>
+            </tr>
+            <tr>
+                <td>Base price:</td>
+                <td><input type="number" name="basePrice"/></td>
+            </tr>
+            <tr><td><input type="submit" value="Add"/> </td><td></td></tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
+<div>
+    @Html.ActionLink("To shows", "Index")
+</div>

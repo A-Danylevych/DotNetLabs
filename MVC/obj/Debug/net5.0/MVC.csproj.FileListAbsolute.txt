@@ -86,3 +86,13 @@ C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Genres\
 C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Authors\Info.cshtml.g.cs
 C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Genres\Info.cshtml.g.cs
 C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\Add.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\FindByAuthor.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\Found.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\FindByGenre.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\NotFound.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\AddTickets.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\TicketInfo.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\Sorry.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\ThankYou.cshtml.g.cs
+C:\Users\anton\RiderProjects\DotNetLabs\MVC\obj\Debug\net5.0\Razor\Views\Shows\TicketNotFound.cshtml.g.cs

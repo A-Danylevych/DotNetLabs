@@ -1,10 +1,11 @@
-﻿@model Models.Base.ShowModel
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model Models.Base.ShowModel
  
 @{
-    ViewBag.Title = "Добавление игрока";
+    ViewBag.Title = "Adding Show";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
- 
+
 <h2>Adding new show</h2>
  
 @using (Html.BeginForm())

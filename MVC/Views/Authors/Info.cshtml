@@ -9,7 +9,13 @@
 <html>
 <head>
     <title>@ViewData["Title"]</title>
-    <p>@Html.ActionLink("Delete author", "Add")</p>
+    <td>
+        <form method="post">
+            <button asp-action="Delete" asp-route-id="@Model.Id">
+                Delete
+            </button>
+        </form>
+    </td>
 </head>
 <body>
 <h3>Author Info</h3>

@@ -9,6 +9,13 @@
 <html>
 <head>
     <title>@ViewData["Title"]</title>
+    <td>
+        <form method="post">
+            <button asp-action="Delete" asp-route-id="@Model.Id">
+                Delete
+            </button>
+        </form>
+    </td>
 </head>
 <body>
 <h3>Genres</h3>

@@ -16,6 +16,7 @@ namespace BLL.Impl.Mappers
                 Seat = entity.Seat,
                 ShowId = entity.ShowId,
                 StatusId = entity.StatusId,
+                Owner = entity.Owner,
             };
         }
     }

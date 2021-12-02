@@ -21,11 +21,11 @@
             <tr>
                 <td>@genreModel.Name</td>
                 <td>
-                    <from method="Delete">
+                    <form method="post">
                         <button asp-action="Delete" asp-route-id="@genreModel.Id">
                             Delete
                         </button>
-                    </from>
+                    </form>
                 </td>
             </tr>
         }

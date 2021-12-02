@@ -16,6 +16,7 @@ namespace BLL.Impl.Mappers
                 Seat = model.Seat,
                 ShowId = model.ShowId,
                 StatusId = model.StatusId,
+                Owner = model.Owner,
             };
         }
     }

@@ -10,6 +10,9 @@ namespace BLL.Abstracts.IService
         
         public Task Create(TicketModel ticketModel);
         public Task CreateTicketsForShow(int showId, int rowCount, int seatCount, decimal basePrice);
-        public Task<decimal> GetPrice(TicketModel ticketModel);
+        public Task<decimal> GetPrice(int showId);
+        public Task<bool> Created(int showId);
+        public Task Delete(int showId);
+        public Task<bool> Created(int showId, int row, int seat);
     }
 }

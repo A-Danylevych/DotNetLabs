@@ -1,0 +1,38 @@
+﻿@model decimal
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <p>Price: @Model</p>
+</head>
+<body>
+<div>
+    <form method="post" asp-action="@ViewBag.NextAction">
+        <table>
+            <input type="hidden" value="@Model" name="Price" />
+            <tr>
+                <td>Row:</td>
+                <td><input type="number" name="Row"/> </td>
+            </tr>
+            <tr>
+                <td>Seat:</td>
+                <td><input type="number" name="Seat"/></td>
+            </tr>
+            <tr>
+                <td>Your Name:</td>
+                <td><input type="text" name="Owner"/></td>
+            </tr>
+            <tr><td><input type="submit" value="@ViewBag.NextAction"/> </td><td></td></tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
+<div>
+    @Html.ActionLink("To shows", "Index")
+</div>

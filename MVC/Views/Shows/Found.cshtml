@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Models.Base.ShowModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+<h3>Found shows</h3>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Date</td>
+        <td></td>
+    </tr>
+    @foreach (var showModel in Model)
+    {
+        <tr>
+            <td>@showModel.Name</td>
+            <td>@showModel.Date.ToString("yyyy-MM-dd")</td>
+            <td>@Html.ActionLink("Author", "Info", "Authors", new{id =@showModel.AuthorId} )</td>
+            <td>@Html.ActionLink("Genre", "Info", "Genres", new {ids=@showModel.GenreId} ) <td/>
+            <td>
+                <from method="Delete">
+                    <button asp-action="Delete" asp-route-id="@showModel.Id">
+                        Delete
+                    </button>
+                </from>
+            </td>
+        </tr>
+    }
+</table>
+</body>
+</html>
+<div>
+    @Html.ActionLink("To shows", "Index")
+</div>

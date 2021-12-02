@@ -52,7 +52,7 @@ namespace Tests
             {
                 AuthorId = _unit.Authors.FindAuthor(entityAuthor.FirstName, entityAuthor.LastName).Result.Id,
                 Date = date,
-                Genres = new List<Genre>() {entityGenre},
+                GenreId = _unit.Genres.FindGenre(name).Result.Id,
                 Name = name,
             };
             const int number = 1;
@@ -98,12 +98,12 @@ namespace Tests
                 Name = test,
                 Author = author,
                 Date = date,
-                Genres= new List<Genre>{genre},
+                GenreId = genre.Id
             };
              _unit.Shows.Create(show).Wait();
 
             var shows = _unit.Shows.FindByDate(date).Result;
-            show = shows.Find(x => x.Author == author && x.Genres.Contains(genre));
+            show = shows.Find(x => x.Author == author && x.Genre == genre);
 
             const int number = 1;
             

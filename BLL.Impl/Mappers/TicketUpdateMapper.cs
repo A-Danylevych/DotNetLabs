@@ -1,4 +1,5 @@
-﻿using BLL.Abstracts.IMapper;
+﻿
+using BLL.Abstracts.IMapper;
 using DAL.Entities;
 using Models.Base;
 
@@ -8,8 +9,8 @@ namespace BLL.Impl.Mappers
     {
         public Ticket MapUpdate(TicketModel model, Ticket entity)
         {
-            entity.Id = model.Id;
             entity.StatusId = model.StatusId;
+            entity.Owner = model.Owner;
             return entity;
         }
     }

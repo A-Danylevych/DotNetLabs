@@ -33,7 +33,7 @@ namespace MVC.Controllers
         }
         
         
-        [HttpDelete]
+        [HttpPost]
         public async Task<IActionResult> Delete([FromRoute]int id)
         {
             await _service.Delete(id);

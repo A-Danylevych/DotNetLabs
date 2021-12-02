@@ -1,0 +1,32 @@
+﻿@model Models.Base.GenreModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gind by genre</title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <input type="hidden" value="@ViewBag.GenreId" name="GenreId" />
+        <table>
+            <p>
+                
+                Genre <br />
+                @Html.DropDownListFor(model => model.Id, ViewBag.Genres as SelectList)
+            </p>
+            <tr>
+                <td><input type="submit" value="Find" /> </td><td></td></tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
+<div>
+    @Html.ActionLink("To shows", "Index")
+</div>

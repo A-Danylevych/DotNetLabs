@@ -52,7 +52,7 @@ namespace Tests
             {
                 AuthorId = _unit.Authors.FindAuthor(name,lastName).Result.Id,
                 Date = date,
-                Genres = new List<Genre>() {entityGenre},
+                GenreId = _unit.Genres.FindGenre(name).Result.Id,
                 Name = name,
             };
             _unit.Shows.Create(entityShow).Wait();
@@ -86,7 +86,7 @@ namespace Tests
                 Name = name,
                 AuthorId = author.Id,
                 Date = date,
-                GenresIds = new List<int>{genre.Id},
+                GenreId = genre.Id,
             };
             
             _service.Create(show).Wait();
@@ -116,7 +116,7 @@ namespace Tests
                 Name = name,
                 AuthorId = author.Id,
                 Date = date,
-                GenresIds = new List<int>{genre.Id},
+                GenreId = genre.Id
             };
             
             Assert.AreEqual(expected, _unit.Shows.GetAll().Result.Count);
@@ -151,7 +151,7 @@ namespace Tests
                 Name = name,
             };
             
-            var list =  _service.FindByGenre(new List<GenreModel>{genre}).Result;
+            var list =  _service.FindByGenre(genre).Result;
             
             Assert.AreEqual(count, list.Count);
         }
