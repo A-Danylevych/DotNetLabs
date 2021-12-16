@@ -1,8 +1,39 @@
-﻿@{
+﻿@model IEnumerable<Models.Base.ShowModel>;
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <p> Our latest shows</p>
+</head>
+<body>
+<h3>Shows</h3>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Date</td>
+        <td></td>
+    </tr>
+    @foreach (var showModel in Model)
+    {
+        <tr>
+            <td>@showModel.Name</td>
+            <td>@showModel.Date.ToString("yyyy-MM-dd")</td>
+
+            <td>
+                @Html.ActionLink("Buy Ticket", "TicketInfo","Shows", new {showId = @showModel.Id, 
+                    nextAction = "BuyTicket"})
+            </td>
+            <td>
+                @Html.ActionLink("Book Ticket", "TicketInfo","Shows", new {showId = @showModel.Id, 
+                    nextAction = "BookTicket"})
+            </td>
+        </tr>
+    }
+</table>
+</body>
+</html>

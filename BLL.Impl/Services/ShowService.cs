@@ -69,5 +69,20 @@ namespace BLL.Impl.Services
         {
             return (from show in await _unit.Shows.GetAll() select _mapper.Map(show)).ToList();
         }
+        public async Task<ShowModel> GetById(int id)
+        {
+            return _mapper.Map(await _unit.Shows.GetById(id));
+        }
+        
+        public async Task Delete(int id)
+        {
+            var entity = await _unit.Shows.GetById(id);
+            if (entity == null)
+            {
+                throw new NotFoundException(typeof(Author));
+            }
+            _unit.Shows.Delete(entity);
+            await _unit.Save();
+        }
     }
 }

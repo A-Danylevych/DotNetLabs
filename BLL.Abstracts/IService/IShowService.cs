@@ -13,5 +13,7 @@ namespace BLL.Abstracts.IService
         public Task<ICollection<ShowModel>> FindByGenre(GenreModel genres);
         public Task<ICollection<ShowModel>> FindByDate(DateTimeOffset date);
         public Task<ICollection<ShowModel>> GetAll();
+        public Task<ShowModel> GetById(int id);
+        public Task Delete(int id);
     }
 }

@@ -5,10 +5,7 @@
         private static void Main()
         {
             var console = new ConsoleApp();
-            while (true)
-            {
-                console.Run();
-            }
+            console.Run();
         }
     }
 }

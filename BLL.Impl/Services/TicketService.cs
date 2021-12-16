@@ -125,5 +125,10 @@ namespace BLL.Impl.Services
 
             return _mapper.Map(entity);
         }
+        
+        public async Task<TicketModel> GetById(int id)
+        {
+            return _mapper.Map(await _unit.Tickets.GetById(id));
+        }
     }
 }

@@ -10,27 +10,18 @@ namespace ConsoleApp
 {
     public class ConsoleApp
     {
-        private readonly IAuthorService _authorService;
-        private readonly IGenreService _genreService;
-        private readonly IShowService _showService;
-        private readonly ITicketService _ticketService;
 
         public ConsoleApp()
         {
             IServiceProvider utils = new Utils();
-            _authorService = (IAuthorService)utils.GetService(typeof(IAuthorService));
-            _genreService = (IGenreService) utils.GetService(typeof(IGenreService));
-            _showService = (IShowService) utils.GetService(typeof(IShowService));
-            _ticketService = (ITicketService) utils.GetService(typeof(ITicketService));
         }
 
         public void Run()
         {
             Console.WriteLine("Playbill\n1. Add new author\n2. Add new Genre\n3. Add new Show\n4. Add new Ticket\n" +
-                              "5. Sell ticket\n6. Book ticket\n7. Quit\n8. Get author id\n9. Get genre id\n10. " +
-                              "UnionNext\n11. FindByAuthor\n12. FindByGenre\n13. FindByDate");
+                              "5. Sell ticket\n6. Book ticket\n7. Get All shows\n8. Get All authors\n9. Get All genres" +
+                              "\n10. FindByGenre\n11. FindByAuthor\n12. Quit");
             var run = true;
-            var unionNext = false;
             var shows = new List<ShowModel>();
             while (run)
             {
@@ -41,80 +32,49 @@ namespace ConsoleApp
                     {
                         case "1":
                             var author = ReadAuthor();
-                            _authorService.Create(author).Wait();
+                            Console.WriteLine(ConsoleHttpClient.CreateAuthor(author));
                             break;
                         case "2":
                             genre = ReadGenre();
-                            _genreService.Create(genre).Wait();
+                            Console.WriteLine(ConsoleHttpClient.CreateGenre(genre));
                             break;
                         case "3":
                             var show = ReadShow();
-                            _showService.Create(show).Wait();
+                            Console.WriteLine(ConsoleHttpClient.CreateShow(show));
                             break;
                         case "4":
                             var ticket = ReadTicket();
-                            _ticketService.Create(ticket).Wait();
+                            Console.WriteLine(ConsoleHttpClient.CreateTicket(ticket));
                             break;
                         case "5":
                             ticket = ReadTicket();
-                            Console.WriteLine(_ticketService.SellTicket(ticket).Result);
+                            Console.WriteLine(ConsoleHttpClient.SellTicket(ticket));
                             break;
                         case "6":
                             ticket = ReadTicket();
-                            Console.WriteLine(_ticketService.BookTicket(ticket).Result);
+                            Console.WriteLine(ConsoleHttpClient.BookTicket(ticket));
                             break;
                         case "7":
-                            run = false;
+                            Console.WriteLine(ConsoleHttpClient.GetAllShows());
                             break;
                         case "8" :
-                            author = ReadAuthor();
-                            Console.WriteLine(_authorService.GetId(author).Result);
+                            Console.WriteLine(ConsoleHttpClient.GetAllAuthors());
                             break;
                         case "9":
-                            genre = ReadGenre();
-                            Console.WriteLine(_genreService.GetId(genre).Result);
+                            Console.WriteLine(ConsoleHttpClient.GetAllGenres());
                             break;
                         case "10":
-                            unionNext = true;
+                            genre = ReadGenre();
+                            Console.WriteLine(ConsoleHttpClient.FindByGenre(genre));
+                            //PrintShows(shows);
                             break;
                         case "11":
                             author = ReadAuthor();
-                            if (unionNext)
-                            {
-                                var next = new List<ShowModel>(_showService.FindByAuthor(author).Result);
-                                shows = new List<ShowModel>(shows.Union(next));
-                            }
-                            else
-                            {
-                                shows = new List<ShowModel>(_showService.FindByAuthor(author).Result);
-                            }
-                            PrintShows(shows);
+                            Console.WriteLine(ConsoleHttpClient.FindByAuthor(author));
+                            //PrintShows(shows);
                             break;
                         case "12":
-                            genre = ReadGenre();
-                            if (unionNext)
-                            {
-                                var next = new List<ShowModel>(_showService.FindByGenre(genre).Result);
-                                shows = new List<ShowModel>(shows.Union(next));
-                            }
-                            else
-                            {
-                                shows = new List<ShowModel>(_showService.FindByGenre(genre).Result);
-                            }
-                            PrintShows(shows);
-                            break;
-                        case "13":
-                            var date = DateTimeOffset.Parse(Console.ReadLine());
-                            if (unionNext)
-                            {
-                                var next = new List<ShowModel>(_showService.FindByDate(date).Result);
-                                shows = new List<ShowModel>(shows.Union(next));
-                            }
-                            else
-                            {
-                                shows = new List<ShowModel>(_showService.FindByDate(date).Result);
-                            }
-                            PrintShows(shows);
+                            run = false;
                             break;
                         default:
                             Console.WriteLine("Something wrong, try again");

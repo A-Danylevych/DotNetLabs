@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.Abstracts.IService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVC.Models;
@@ -11,23 +12,21 @@ namespace MVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IShowService _service;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IShowService service)
         {
-            _logger = logger;
+            _service = service;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var shows = _service.GetAll().Result;
+            var result = shows.OrderByDescending(show => show.Date);
+            
+            return View(result);
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

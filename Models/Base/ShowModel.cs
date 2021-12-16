@@ -16,10 +16,10 @@ namespace Models.Base
         public int GenreId { get; set; }
         [Required]
         public DateTimeOffset Date { get; set; }
-        
+
         public override string ToString()
         {
-            return "Name: " + Name + "\n" + "AuthorId: " + AuthorId + "\n" + "GenresIds: " 
+            return "Id:" + Id + "\n" + "Name: " + Name + "\n" + "AuthorId: " + AuthorId + "\n" + "GenresIds: " 
                    + GenreId + "\n" + "Date: " + Date;
         }
 

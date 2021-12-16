@@ -14,5 +14,6 @@ namespace BLL.Abstracts.IService
         public Task<bool> Created(int showId);
         public Task Delete(int showId);
         public Task<bool> Created(int showId, int row, int seat);
+        public Task<TicketModel> GetById(int id);
     }
 }

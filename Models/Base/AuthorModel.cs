@@ -12,7 +12,7 @@ namespace Models.Base
         
         public override string ToString()
         {
-            return FirstName + " " + LastName;
+            return Id + " " + FirstName + " " + LastName;
         }
     }
 }

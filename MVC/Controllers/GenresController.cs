@@ -10,7 +10,7 @@ namespace MVC.Controllers
 {
     public class GenresController : Controller
     {
-        private IGenreService _service;
+        private readonly IGenreService _service;
 
         public GenresController(IGenreService service)
         {

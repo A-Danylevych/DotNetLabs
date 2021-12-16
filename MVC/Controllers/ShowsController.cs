@@ -51,9 +51,11 @@ namespace MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete()
+        [HttpPost]
+        public async Task<IActionResult> Delete([FromRoute]int id)
         {
-            throw new System.NotImplementedException();
+            await _service.Delete(id);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

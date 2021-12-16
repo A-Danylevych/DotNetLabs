@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Models.Result
 {
-    public class Result : ActionResult
+    public class Result
     {
         public bool Success { get; set; }
         public string? Error { get; set; }
@@ -14,11 +16,6 @@ namespace Models.Result
             {
                 Success = true,
             };
-        }
-
-        public override void ExecuteResult(ControllerContext context)
-        {
-            throw new NotImplementedException();
         }
     }
 
