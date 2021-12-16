@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API</name>
+    </assembly>
+    <members>
+        <member name="M:API.Controllers.AuthorsController.GetAll">
+            <summary>
+            Get all authors.
+            </summary>
+            <returns>list of authors</returns>
+            <response code="200">Returns the all authors</response>
+            <response code="500">If the item is null</response>
+        </member>
+        <member name="M:API.Controllers.AuthorsController.Get(System.Int32)">
+            <summary>
+            Get an author by id.
+            </summary>
+            <param name="id"></param>
+            <returns>an author</returns>
+            <response code="200">Returns the author</response>
+            <response code="404">If the item is not found</response>
+        </member>
+        <member name="M:API.Controllers.AuthorsController.Add(Models.Base.AuthorModel)">
+            <summary>
+            Post a new author.
+            </summary>
+            <returns>an created author</returns>
+            <response code="201">Created author</response>
+            <response code="500">If unable to create</response>
+        </member>
+        <member name="M:API.Controllers.AuthorsController.Delete(System.Int32)">
+            <summary>
+            Delete an author.
+            </summary>
+            <param name="id"></param>
+            <returns>success of operation</returns>
+            <response code="204">Success</response>
+            <response code="500">If unable to delete</response>
+        </member>
+        <member name="M:API.Controllers.GenresController.GetAll">
+            <summary>
+            Get all genres.
+            </summary>
+            <returns>list of genres</returns>
+            <response code="200">Returns the all genres</response>
+            <response code="500">If the item is null</response>
+        </member>
+        <member name="M:API.Controllers.GenresController.Get(System.Int32)">
+            <summary>
+            Get a genre by id.
+            </summary>
+            <param name="id"></param>
+            <returns>a genre</returns>
+            <response code="200">Returns the genre</response>
+            <response code="404">If the item is not found</response>
+        </member>
+        <member name="M:API.Controllers.GenresController.Add(Models.Base.GenreModel)">
+            <summary>
+            Post a new genre.
+            </summary>
+            <returns>an created genre</returns>
+            <response code="201">Created genre</response>
+            <response code="500">If unable to create</response>
+        </member>
+        <member name="M:API.Controllers.GenresController.Delete(System.Int32)">
+            <summary>
+            Delete an genre.
+            </summary>
+            <param name="id"></param>
+            <returns>success of operation</returns>
+            <response code="204">Success</response>
+            <response code="500">If unable to delete</response>
+        </member>
+        <member name="M:API.Controllers.ShowsController.GetAll">
+            <summary>
+            Get all shows.
+            </summary>
+            <returns>list of shows</returns>
+            <response code="200">Returns the all shows</response>
+            <response code="500">If the item is null</response>
+        </member>
+        <member name="M:API.Controllers.ShowsController.Get(System.Int32)">
+            <summary>
+            Get a show by id.
+            </summary>
+            <param name="id"></param>
+            <returns>a show</returns>
+            <response code="200">Returns the show</response>
+            <response code="404">If the item is not found</response>
+        </member>
+        <member name="M:API.Controllers.ShowsController.Add(Models.Base.ShowModel)">
+            <summary>
+            Post a new show.
+            </summary>
+            <returns>an created show</returns>
+            <response code="201">Created show</response>
+            <response code="500">If unable to create</response>
+        </member>
+        <member name="M:API.Controllers.ShowsController.FindByAuthor(Models.Base.AuthorModel)">
+            <summary>
+            Get all shows with some author.
+            </summary>
+            <returns>list of shows</returns>
+            <response code="200">Returns the specific shows</response>
+            <response code="500">If the item is null</response>
+        </member>
+        <member name="M:API.Controllers.ShowsController.FindByGenre(Models.Base.GenreModel)">
+            <summary>
+            Get all shows with some genre.
+            </summary>
+            <returns>list of shows</returns>
+            <response code="200">Returns the specific shows</response>
+            <response code="500">If the item is null</response>
+        </member>
+        <member name="M:API.Controllers.ShowsController.Delete(System.Int32)">
+            <summary>
+            Delete an show.
+            </summary>
+            <param name="id"></param>
+            <returns>success of operation</returns>
+            <response code="204">Success</response>
+            <response code="500">If unable to delete</response>
+        </member>
+        <member name="M:API.Controllers.StatusController.GetAll">
+            <summary>
+            Get all statuses.
+            </summary>
+            <returns>list of statuses</returns>
+            <response code="200">Returns the all statuses</response>
+            <response code="500">If the item is null</response>
+        </member>
+        <member name="M:API.Controllers.StatusController.Get(System.Int32)">
+            <summary>
+            Get an status by id.
+            </summary>
+            <param name="id"></param>
+            <returns>an status</returns>
+            <response code="200">Returns the status</response>
+            <response code="404">If the item is not found</response>
+        </member>
+        <member name="M:API.Controllers.TicketsController.GetAll">
+            <summary>
+            Get all tickets.
+            </summary>
+            <returns>list of tickets</returns>
+            <response code="200">Returns the all tickets</response>
+            <response code="500">If the item is null</response>
+        </member>
+        <member name="M:API.Controllers.TicketsController.Get(System.Int32)">
+            <summary>
+            Get an ticket by id.
+            </summary>
+            <param name="id"></param>
+            <returns>an ticket</returns>
+            <response code="200">Returns the ticket</response>
+            <response code="404">If the item is not found</response>
+        </member>
+        <member name="M:API.Controllers.TicketsController.Add(Models.Base.TicketModel)">
+            <summary>
+            Post a new ticket.
+            </summary>
+            <returns>an created ticket</returns>
+            <response code="201">Created ticket</response>
+            <response code="500">If unable to create</response>
+        </member>
+        <member name="M:API.Controllers.TicketsController.Delete(System.Int32)">
+            <summary>
+            Delete an ticket.
+            </summary>
+            <param name="id"></param>
+            <returns>success of operation</returns>
+            <response code="204">Success</response>
+            <response code="500">If unable to delete</response>
+        </member>
+        <member name="M:API.Controllers.TicketsController.Book(Models.Base.TicketModel)">
+            <summary>
+            Put ticket model to change its status to booked.
+            </summary>
+            <returns>success of operation</returns>
+            <response code="204">Success</response>
+            <response code="500">If unable to change status</response>
+        </member>
+        <member name="M:API.Controllers.TicketsController.Buy(Models.Base.TicketModel)">
+            <summary>
+            Put ticket model to change its status to bought.
+            </summary>
+            <returns>success of operation</returns>
+            <response code="204">Success</response>
+            <response code="500">If unable to change status</response>
+        </member>
+    </members>
+</doc>
