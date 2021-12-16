@@ -18,9 +18,10 @@ namespace ConsoleApp
 
         public void Run()
         {
-            Console.WriteLine("Playbill\n1. Add new author\n2. Add new Genre\n3. Add new Show\n4. Add new Ticket\n" +
+            Console.WriteLine("Playbill\n1. Add new Author\n2. Add new Genre\n3. Add new Show\n4. Add new Ticket\n" +
                               "5. Sell ticket\n6. Book ticket\n7. Get All shows\n8. Get All authors\n9. Get All genres" +
-                              "\n10. FindByGenre\n11. FindByAuthor\n12. Quit");
+                              "\n10. Get all tickets\n11. Delete Author\n12. Delete Genre \n13. Delete Show \n14. " +
+                              "Delete Ticket \n15.FindByGenre\n16. FindByAuthor\n17. Quit");
             var run = true;
             var shows = new List<ShowModel>();
             while (run)
@@ -64,16 +65,33 @@ namespace ConsoleApp
                             Console.WriteLine(ConsoleHttpClient.GetAllGenres());
                             break;
                         case "10":
-                            genre = ReadGenre();
-                            Console.WriteLine(ConsoleHttpClient.FindByGenre(genre));
-                            //PrintShows(shows);
+                            Console.WriteLine(ConsoleHttpClient.GetAllTickets());
                             break;
                         case "11":
-                            author = ReadAuthor();
-                            Console.WriteLine(ConsoleHttpClient.FindByAuthor(author));
-                            //PrintShows(shows);
+                            var id = ReadId();
+                            Console.WriteLine(ConsoleHttpClient.DeleteAuthor(id));
                             break;
                         case "12":
+                            id = ReadId();
+                            Console.WriteLine(ConsoleHttpClient.DeleteGenre(id));
+                            break;
+                        case "13":
+                            id = ReadId();
+                            Console.WriteLine(ConsoleHttpClient.DeleteShow(id));
+                            break;
+                        case "14":
+                            id = ReadId();
+                            Console.WriteLine(ConsoleHttpClient.DeleteTicket(id));
+                            break;
+                        case "15":
+                            genre = ReadGenre();
+                            Console.WriteLine(ConsoleHttpClient.FindByGenre(genre));
+                            break;
+                        case "16":
+                            author = ReadAuthor();
+                            Console.WriteLine(ConsoleHttpClient.FindByAuthor(author));
+                            break;
+                        case "17":
                             run = false;
                             break;
                         default:
@@ -87,14 +105,7 @@ namespace ConsoleApp
                 }
             }
         }
-
-        private static void PrintShows(List<ShowModel> showModels)
-        {
-            foreach (var model in showModels)
-            {
-                Console.WriteLine(model);
-            }
-        }
+        
         private static AuthorModel ReadAuthor()
         {
             var authorModel = new AuthorModel();
@@ -121,8 +132,6 @@ namespace ConsoleApp
             show.AuthorId = int.Parse(Console.ReadLine() ?? string.Empty);
             Console.WriteLine("Write genre id");
             show.GenreId = int.Parse(Console.ReadLine() ?? string.Empty);
-            Console.WriteLine("Write date");
-            show.Date = DateTimeOffset.Now;
             return show;
         }
 
@@ -135,19 +144,19 @@ namespace ConsoleApp
             ticket.Row = int.Parse(Console.ReadLine() ?? string.Empty);
             Console.WriteLine("Write price");
             ticket.Price = decimal.Parse(Console.ReadLine() ?? string.Empty);
-            Console.WriteLine("Write status id");
-            ticket.StatusId = int.Parse(Console.ReadLine() ?? string.Empty);
             Console.WriteLine("Write show id");
             ticket.ShowId = int.Parse(Console.ReadLine() ?? string.Empty);
+            Console.WriteLine("Write owner");
+            ticket.Owner = Console.ReadLine();
             return ticket;
         }
 
-        private static GenreModel ReadGenres()
+        private static int ReadId()
         {
-            var genres = new GenreModel();
-
-            return genres;
+            Console.WriteLine("Write item id");
+            return int.Parse(Console.ReadLine() ?? string.Empty);
         }
+        
 
     }
 }

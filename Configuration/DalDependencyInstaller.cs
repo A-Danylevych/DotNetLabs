@@ -20,7 +20,7 @@ namespace Configuration
             services.AddTransient<IShowRepository, ShowRepository>();
             services.AddTransient<IStatusRepository, StatusRepository>();
             services.AddTransient<ITicketRepository, TicketRepository>();
-            
+
             services.AddTransient<AbstractUnitOfWork, UnitOfWork>();
         }
     }

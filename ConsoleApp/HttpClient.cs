@@ -42,15 +42,15 @@ namespace ConsoleApp
         public static string SellTicket(TicketModel ticket)
         {
             using var client = new HttpClient();
-            var response = client.GetAsync(AppPath + $"/Tickets/sell/{ticket.Id}").Result;
-            return response.Content.ReadAsStringAsync().Result;
+            var response = client.PutAsJsonAsync(AppPath + $"/Tickets/sell", ticket).Result;
+            return response.StatusCode.ToString();
         }
 
         public static string BookTicket(TicketModel ticket)
         {
             using var client = new HttpClient();
-            var response = client.GetAsync(AppPath + $"/Tickets/book/{ticket.Id}").Result;
-            return response.Content.ReadAsStringAsync().Result;
+            var response = client.PutAsJsonAsync(AppPath + "/Tickets/book", ticket).Result;
+            return response.StatusCode.ToString();
         }
 
         public static string GetAllGenres()
@@ -85,6 +85,16 @@ namespace ConsoleApp
             return list == null ? result : list.Aggregate(result, (current, item) => current
                 + (item + "\n"));
         }
+        public static string GetAllTickets()
+        {
+            using var client = new HttpClient();
+            var response = client.GetAsync(AppPath + $"/Tickets").Result;
+            var str = response.Content.ReadAsStringAsync().Result;
+            var list = JsonConvert.DeserializeObject<List<TicketModel>>(str);
+            const string result = "";
+            return list == null ? result : list.Aggregate(result, (current, item) => current
+                + (item + "\n"));
+        }
 
         public static string FindByGenre(GenreModel genre)
         {
@@ -106,6 +116,31 @@ namespace ConsoleApp
             const string result = "";
             return list == null ? result : list.Aggregate(result, (current, item) => current
                 + (item + "\n"));
+        }
+
+        public static string DeleteAuthor(int id)
+        {
+            using var client = new HttpClient();
+            var response = client.DeleteAsync(AppPath + $"/Authors/{id}").Result;
+            return response.StatusCode.ToString();
+        }
+        public static string DeleteGenre(int id)
+        {
+            using var client = new HttpClient();
+            var response = client.DeleteAsync(AppPath + $"/Genres/{id}").Result;
+            return response.StatusCode.ToString();
+        }
+        public static string DeleteShow(int id)
+        {
+            using var client = new HttpClient();
+            var response = client.DeleteAsync(AppPath + $"/Shows/{id}").Result;
+            return response.StatusCode.ToString();
+        }
+        public static string DeleteTicket(int id)
+        {
+            using var client = new HttpClient();
+            var response = client.DeleteAsync(AppPath + $"/Tickets/{id}").Result;
+            return response.StatusCode.ToString();
         }
     }
 }

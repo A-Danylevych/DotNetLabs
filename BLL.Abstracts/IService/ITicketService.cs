@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Models.Base;
 
 namespace BLL.Abstracts.IService
@@ -15,5 +16,6 @@ namespace BLL.Abstracts.IService
         public Task Delete(int showId);
         public Task<bool> Created(int showId, int row, int seat);
         public Task<TicketModel> GetById(int id);
+        public Task<ICollection<TicketModel>> GetAll();
     }
 }

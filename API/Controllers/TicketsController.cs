@@ -6,6 +6,8 @@ using Models.Base;
 
 namespace API.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class TicketsController: ControllerBase
     {
         private readonly ITicketService _service;
@@ -13,6 +15,12 @@ namespace API.Controllers
         public TicketsController(ITicketService service)
         {
             _service = service;
+        }
+        [HttpGet]
+        [Produces("application/json")]
+        public async Task<IActionResult> GetAll()
+        {
+            return Ok(await _service.GetAll());
         }
        
         [HttpGet]

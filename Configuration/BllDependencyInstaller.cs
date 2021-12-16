@@ -28,6 +28,9 @@ namespace Configuration
             services.AddTransient<IBackMapper<Ticket, TicketModel>, TicketBackMapper>();
             services.AddTransient<IMapper<Ticket, TicketModel>, TicketMapper>();
             services.AddTransient<IUpdateMapper<Ticket, TicketModel>, TicketUpdateMapper>();
+
+            services.AddTransient<IStatusService, StatusService>();
+            services.AddTransient<IMapper<Status, StatusModel>, StatusMapper>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using BLL.Abstracts.IMapper;
 using BLL.Abstracts.IService;
@@ -39,6 +40,7 @@ namespace BLL.Impl.Services
         public async Task Create(TicketModel ticketModel)
         {
             var entity = _backMapper.MapBack(ticketModel);
+            entity.StatusId = (int)StatusEnum.Available;
             try
             {
                 await _unit.Tickets.Create(entity);
@@ -47,6 +49,7 @@ namespace BLL.Impl.Services
             {
                 throw new CreationException(typeof(Ticket));
             }
+            await _unit.Save();
         }
 
         public async Task CreateTicketsForShow(int showId, int rowCount, int seatCount, decimal price)
@@ -129,6 +132,10 @@ namespace BLL.Impl.Services
         public async Task<TicketModel> GetById(int id)
         {
             return _mapper.Map(await _unit.Tickets.GetById(id));
+        }
+        public async Task<ICollection<TicketModel>> GetAll()
+        {
+            return (from ticket in await _unit.Tickets.GetAll() select _mapper.Map(ticket)).ToList();
         }
     }
 }
