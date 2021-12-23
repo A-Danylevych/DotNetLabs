@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Author</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" href="/">Playbill</a>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Authors.html">Authors</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Genres.html">Genres</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Shows.html">Shows</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Tickets.html">Tickets</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Status.html">Status</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+               
+        <div class="container">
+            <div class="table-responsive">
+              <h1>Authors</h1>
+              <br />
+              <table class="table table-bordered table-striped" id="authors_table">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+              </table>
+              
+          </div>
+          </div>
+           
+        </body>
+        </html>
+        <script>
+            var url = "https://localhost:44369/Authors"
+            $(document).ready(function(){
+              $.getJSON(url, function(data){
+                var _data = '';
+                $.each(data, function(key, value){
+                    _data += '<tr>';
+                    _data += '<td>'+value.id+'</td>';
+                    _data += '<td>'+value.firstName+'</td>';
+                    _data += '<td>'+value.lastName+'</td>';
+                    _data += '</tr>';
+                });
+                $('#authors_table').append(_data);
+              });   
+            });
+        </script>
